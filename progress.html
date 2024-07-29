@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracker</title>
+    <style>
+        .section{
+
+            background-color: yellow;
+        }
+        .container{
+            display: flex;
+        }
+        .container > .step{
+            background-color: rgb(233, 233, 233);
+            /* text-align: center; */
+            /* flex:1; */
+            margin:100px;
+            padding:10px;
+            border-radius: 100%;
+            border: 1px solid grey;
+        }
+        .nav{
+            display:flex;
+        }
+        .nav>button{
+            flex:1;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            padding:10px;
+            margin:10px 300px;
+            background-color: purple;
+            color:white;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="step">X</div>
+            <div class="step">X</div>
+            <div class="step">X</div>
+            <div class="step">X</div>
+            <div class="step">X</div>
+        </div>
+        
+        <div class="nav">
+            <button id="prev" onclick="prev()"><</button>
+            <button id="next" onclick="next()">></button>
+        </div>
+    </div>
+        
+        
+</body>
+<script>
+    let currentStep = 0;
+        const steps = document.querySelectorAll('.step');
+
+        function next() {
+            if (currentStep < steps.length) {
+                steps[currentStep].style.border = '2px solid green';
+                steps[currentStep].innerText = '✔';
+                currentStep++;
+            }
+          }
+          function prev() {
+            if (currentStep > 0) {
+                currentStep--;
+                steps[currentStep].style.border = '2px solid grey';
+                steps[currentStep].innerText = currentStep + 1;
+            }
+        }
+    
+</script>
+</html>
